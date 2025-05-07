@@ -1,5 +1,5 @@
 import 'package:fitness/components/workout_card.dart';
-
+//workout data
 class WorkoutData {
   //follow along workout
   static List<WorkoutCard> getFollowAlongWorkouts() {
