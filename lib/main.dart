@@ -3,6 +3,7 @@ import 'package:fitness/pages/explore_page.dart';
 import 'package:flutter/material.dart';
 
 import 'components/bottom_nav_bar.dart';
+import 'components/tab_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class _MainWrapperState extends State<MainWrapper> {
   // Your page widgets (modify with your actual pages)
   final List<Widget> _pages = [
     const DashBoard(),
-    const ExplorePage(),
+    const ExploreTab(),
     const ProfilePage(),
     const PremiumPage(),
   ];

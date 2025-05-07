@@ -1,40 +1,22 @@
-//explore page
 import 'package:flutter/material.dart';
-import 'package:fitness/components/workout_card.dart';
 import 'package:fitness/components/section_title.dart';
 import 'package:fitness/data/workout_data.dart';
+import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'programs_tab.dart';
 
-class ExplorePage extends StatelessWidget {
-  const ExplorePage({super.key});
+class ExploreTab extends StatelessWidget {
+  const ExploreTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: Container(
-            margin: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
-                ),
-              ],
-            ),
-            child: IconButton(
-              icon: Icon(Icons.search, color: Colors.black, size: 24),
-              onPressed: () {},
-            ),
-          ),
-          title: Text(
+          title: const Text(
             'Explore',
             style: TextStyle(
               color: Colors.black,
@@ -43,91 +25,182 @@ class ExplorePage extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          actions: [
-            Container(
-              margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 8,
-                    offset: Offset(0, 2),
+        ),
+        body: Column(
+          children: <Widget>[
+            ButtonsTabBar(
+              backgroundColor: Colors.black,
+              unselectedBackgroundColor: Colors.grey[300],
+              unselectedLabelStyle: TextStyle(color: Colors.black),
+              labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.fitness_center),
+                  text: "Workouts",
+                ),
+                Tab(
+                  icon: Icon(Icons.calendar_today),
+                  text: "Programs",
+                ),
+                Tab(
+                  icon: Icon(Icons.sports_gymnastics),
+                  text: "Techniques",
+                ),
+                Tab(
+                  icon: Icon(Icons.directions_run),
+                  text: "Exercises",
+                ),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  ListView(
+                    children: [
+                      const SizedBox(height: 16),
+                      SectionTitle(title: 'Follow Along Workouts'),
+                      SizedBox(
+                        height: 240,
+                        child: PageView(
+                          controller: PageController(viewportFraction: 0.9),
+                          scrollDirection: Axis.horizontal,
+                          children: WorkoutData.getFollowAlongWorkouts(),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      SectionTitle(title: 'YouTube Workouts'),
+                      SizedBox(
+                        height: 240,
+                        child: PageView(
+                          controller: PageController(viewportFraction: 0.9),
+                          scrollDirection: Axis.horizontal,
+                          children: WorkoutData.getYouTubeWorkouts(),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      SectionTitle(title: 'No Equipment Workouts'),
+                      SizedBox(
+                        height: 240,
+                        child: PageView(
+                          controller: PageController(viewportFraction: 0.9),
+                          scrollDirection: Axis.horizontal,
+                          children: WorkoutData.getNoEquipmentWorkouts(),
+                        ),
+                      ),
+                    ],
                   ),
+                  ProgramsTab(),
+                  Center(child: Text('Techniques')),
+                  Center(child: Text('Exercises')),
                 ],
-              ),
-              child: IconButton(
-                icon: Icon(Icons.notifications_none, color: Colors.black, size: 24),
-                onPressed: () {},
               ),
             ),
           ],
         ),
-        body: ListView(
+      ),
+    );
+  }
+}
+
+class ProgramCard extends StatelessWidget {
+  final String title;
+  final String description;
+  final String duration;
+  final String level;
+  final String imageUrl;
+
+  const ProgramCard({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.duration,
+    required this.level,
+    required this.imageUrl,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Container(
+        height: 200,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              color: Colors.white,
-              padding: EdgeInsets.symmetric(vertical: 8),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        'Workouts',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    ...['Programs', 'Techniques', 'Exercises', 'Coaching'].map(
-                          (text) => Container(
-                        margin: EdgeInsets.only(right: 8),
-                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          text,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                color: Colors.grey[300],
+                image: DecorationImage(
+                  image: NetworkImage(imageUrl),
+                  fit: BoxFit.cover,
+                  onError: (exception, stackTrace) {
+                    // Handle image loading error
+                  },
                 ),
               ),
             ),
-            SizedBox(height: 16),
-            SectionTitle(title: 'Follow Along Workouts'),
-            SizedBox(
-              height: 240,
-              child: PageView(
-                controller: PageController(viewportFraction: 0.9),
-                scrollDirection: Axis.horizontal,
-                children: WorkoutData.getFollowAlongWorkouts(),
-              ),
-            ),
-            SizedBox(height: 16),
-            SectionTitle(title: 'YouTube Workouts'),
-            SizedBox(
-              height: 240,
-              child: PageView(
-                controller: PageController(viewportFraction: 0.9),
-                scrollDirection: Axis.horizontal,
-                children: WorkoutData.getYouTubeWorkouts(),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    description,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600],
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          duration,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          level,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],

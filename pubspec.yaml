@@ -70,6 +70,11 @@ flutter:
     - assets/images/youtube_workout/abs.jpg
     - assets/images/youtube_workout/FullWorkout.jpg
     - assets/images/youtube_workout/UPperbody.jpg
+    - assets/images/no_equipment/noequipment1.jpg
+    - assets/images/no_equipment/noequipment2.jpg
+    - assets/images/no_equipment/noequipment3.jpg
+
+
 
   #   - images/a_dot_ham.jpeg
 
