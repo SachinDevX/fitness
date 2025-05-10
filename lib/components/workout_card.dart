@@ -56,11 +56,10 @@ class WorkoutCard extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                     // color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Text(
-                      isYouTube ? 'YOUTUBE WORKOUTS' : 'FOLLOW ALONG WORKOUT',
+                      title,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

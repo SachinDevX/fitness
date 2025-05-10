@@ -73,6 +73,10 @@ flutter:
     - assets/images/no_equipment/noequipment1.jpg
     - assets/images/no_equipment/noequipment2.jpg
     - assets/images/no_equipment/noequipment3.jpg
+    - assets/images/program/beg.jpeg
+    - assets/images/program/int.jpeg
+    - assets/images/program/adv.jpeg
+
 
 
 

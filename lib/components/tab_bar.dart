@@ -33,14 +33,14 @@ class _ExampleState extends State<Example> {
                   isScrollable: true,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.black,
+              color: Colors.black,
                   ),
                   labelPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.black,
                   unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
                   labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  tabs: [
+                tabs: [
                     Tab(
                       icon: Icon(Icons.directions_car),
                       text: "car",
@@ -53,9 +53,9 @@ class _ExampleState extends State<Example> {
                     Tab(icon: Icon(Icons.directions_car)),
                     Tab(icon: Icon(Icons.directions_transit)),
                     Tab(icon: Icon(Icons.directions_bike)),
-                  ],
-                ),
+                ],
               ),
+            ),
               Expanded(
                 child: TabBarView(
                   children: <Widget>[
@@ -77,7 +77,7 @@ class _ExampleState extends State<Example> {
                     Center(
                       child: Icon(Icons.directions_bike),
                     ),
-                  ],
+          ],
                 ),
               ),
             ],

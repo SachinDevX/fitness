@@ -3,6 +3,7 @@ import 'package:fitness/components/section_title.dart';
 import 'package:fitness/data/workout_data.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'programs_tab.dart';
+import 'technique.dart';
 
 class ExploreTab extends StatelessWidget {
   const ExploreTab({super.key});
@@ -11,20 +12,20 @@ class ExploreTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: Scaffold(
+        child: Scaffold(
         backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
           title: const Text(
-            'Explore',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+              'Explore',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
               fontSize: 24,
+              ),
             ),
-          ),
-          centerTitle: true,
+            centerTitle: true,
         ),
         body: Column(
           children: <Widget>[
@@ -49,8 +50,8 @@ class ExploreTab extends StatelessWidget {
                 Tab(
                   icon: Icon(Icons.directions_run),
                   text: "Exercises",
-                ),
-              ],
+              ),
+            ],
             ),
             Expanded(
               child: TabBarView(
@@ -90,7 +91,7 @@ class ExploreTab extends StatelessWidget {
                     ],
                   ),
                   ProgramsTab(),
-                  Center(child: Text('Techniques')),
+                  TechniquePage(),
                   Center(child: Text('Exercises')),
                 ],
               ),
@@ -153,7 +154,7 @@ class ProgramCard extends StatelessWidget {
                     title,
                     style: TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 4),
@@ -168,7 +169,7 @@ class ProgramCard extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Row(
-                    children: [
+            children: [
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
@@ -198,8 +199,8 @@ class ProgramCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ],
-                  ),
+            ],
+          ),
                 ],
               ),
             ),
