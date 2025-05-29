@@ -1,5 +1,6 @@
 import 'package:fitness/pages/premium_page.dart';
 import 'package:fitness/pages/explore_page.dart';
+import 'package:fitness/pages/dashboard/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 import 'components/bottom_nav_bar.dart';
@@ -66,7 +67,7 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Dashboard Page'));
+    return const Dashboard_tabs();
   }
 }
 

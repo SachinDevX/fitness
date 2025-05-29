@@ -55,11 +55,11 @@ class ExerciseCard extends StatelessWidget {
           SizedBox(width: 16),
           //title
           Expanded(
-            child: Text(
-              title,
+              child: Text(
+                title,
               style: TextStyle(color: Colors.white, fontSize: 16),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
             ),
           ),
           SizedBox(width: 16),

@@ -76,6 +76,11 @@ flutter:
     - assets/images/program/beg.jpeg
     - assets/images/program/int.jpeg
     - assets/images/program/adv.jpeg
+    - assets/images/exercise/exercise1.jpeg
+    - assets/images/exercise/exercise2.jpeg
+    - assets/images/exercise/exercise3.jpeg
+    - assets/images/exercise/exercise4.jpeg
+    - assets/images/exercise/exercise5.jpeg
 
 
 
