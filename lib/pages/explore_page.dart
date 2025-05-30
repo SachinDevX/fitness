@@ -56,6 +56,7 @@ class ExploreTab extends StatelessWidget {
             ),
             Expanded(
               child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   ListView(
                     children: [
