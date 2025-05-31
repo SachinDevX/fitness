@@ -1,4 +1,7 @@
 import 'package:fitness/components/workout_card.dart';
+import 'package:flutter/material.dart';
+
+import '../components/ExerciseDetailCard.dart';
 //workout data
 class WorkoutData {
   //follow along workout
