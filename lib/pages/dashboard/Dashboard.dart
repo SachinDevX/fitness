@@ -228,8 +228,11 @@ class StatCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            '-',
+          Text(
+            title == 'ACTIVE\nSTREAK' ? '7' :
+            title == 'LONGEST\nSTREAK' ? '21' :
+            title == 'DAYS\nCOMPLETED' ? '45' :
+            '2h 30m',
             style: TextStyle(
               color: Colors.white70,
               fontWeight: FontWeight.bold,

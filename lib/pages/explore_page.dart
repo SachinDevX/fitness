@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fitness/components/section_title.dart';
 import 'package:fitness/data/workout_data.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import '../components/ExerciseDetailCard.dart';
 import 'exercise_page.dart';
 import 'programs_tab.dart';
 import 'technique.dart';
