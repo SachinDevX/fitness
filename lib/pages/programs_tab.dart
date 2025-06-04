@@ -61,7 +61,7 @@ class ProgramsTab extends StatelessWidget {
                 type: "Full Body",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/program/prog1.jpeg"
               ),
               WorkoutCard(
                 title: "Intermediate",
@@ -69,7 +69,7 @@ class ProgramsTab extends StatelessWidget {
                 type: "Full Body",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/program/prog2.jpeg"
               ),
               WorkoutCard(
                 title: "Advanced",
@@ -77,7 +77,7 @@ class ProgramsTab extends StatelessWidget {
                 type: "Full Body",
                 equipment: "Chair",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/program/prog3.jpeg"
               ),
             ],
           ),

@@ -31,15 +31,15 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
   bool isPaused = false;
   int currentExerciseIndex = 0;
   Timer? timer;
-  int remainingSeconds = 30; // Default duration for first exercise
+  int remainingSeconds = 30;
   bool isWorkoutComplete = false;
 
   List<Map<String, dynamic>> exercises = [
-    {'name': 'Jumping Jacks', 'duration': 30},
-    {'name': 'Push-ups', 'duration': 45},
-    {'name': 'Squats', 'duration': 30},
-    {'name': 'Mountain Climbers', 'duration': 45},
-    {'name': 'Plank', 'duration': 30},
+    {'name': 'Jumping Jacks', 'duration': 30, 'animation': 'assets/animation/Jumping_Jacks.gif'},
+    {'name': 'Push-ups', 'duration': 45, 'animation': 'assets/animation/pushups.gif'},
+    {'name': 'Squats', 'duration': 30, 'animation': 'assets/animation/Jumping_Jacks.gif'},
+    {'name': 'Mountain Climbers', 'duration': 45, 'animation': 'assets/animation/Jumping_Jacks.gif'},
+    {'name': 'Plank', 'duration': 30, 'animation': 'assets/animation/Jumping_Jacks.gif'},
   ];
 
   @override
@@ -61,12 +61,10 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
         if (remainingSeconds > 0) {
           remainingSeconds--;
         } else {
-          // Move to next exercise or complete workout
           if (currentExerciseIndex < exercises.length - 1) {
             currentExerciseIndex++;
             remainingSeconds = exercises[currentExerciseIndex]['duration'];
           } else {
-            // Workout complete
             timer.cancel();
             isWorkoutComplete = true;
             isPaused = true;
@@ -111,17 +109,40 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Background image
+        // Background image with animation
         Positioned.fill(
-          child: Image.asset(
-            widget.imageUrl,
-            fit: BoxFit.cover,
+          child: Stack(
+            children: [
+              // Static background image
+              Image.asset(
+                widget.imageUrl,
+                fit: BoxFit.cover,
+              ),
+              // Animated GIF overlay
+              if (!isWorkoutComplete)
+                Image.asset(
+                  exercises[currentExerciseIndex]['animation'],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+            ],
           ),
         ),
-        // Dark overlay
+        // Dark overlay with gradient
         Positioned.fill(
           child: Container(
-            color: Colors.black.withOpacity(0.5),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.7),
+                  Colors.black.withOpacity(0.5),
+                  Colors.black.withOpacity(0.7),
+                ],
+              ),
+            ),
           ),
         ),
         // Content
@@ -162,25 +183,37 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
               ),
               Spacer(),
               // Current Exercise
-              Text(
-                isWorkoutComplete ? 'WORKOUT COMPLETE!' : exercises[currentExerciseIndex]['name'],
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                  letterSpacing: 1.2,
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      isWorkoutComplete ? 'WORKOUT COMPLETE!' : exercises[currentExerciseIndex]['name'],
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      isWorkoutComplete ? '🎉' : formatTime(remainingSeconds),
+                      style: TextStyle(
+                        color: Colors.yellowAccent,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
-                isWorkoutComplete ? '🎉' : formatTime(remainingSeconds),
-                style: TextStyle(
-                  color: Colors.yellowAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-              Spacer(),
+              SizedBox(height: 32),
               // Timer Controls
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -194,7 +227,7 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: Colors.black54,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -237,7 +270,7 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: Colors.black54,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -250,7 +283,7 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
                   ],
                 ),
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 16),
               // Exercise List
               Container(
                 height: 120,
@@ -264,7 +297,7 @@ class _ExerciseDetailCardState extends State<ExerciseDetailCard> {
                       decoration: BoxDecoration(
                         color: currentExerciseIndex == index 
                             ? Colors.yellowAccent.withOpacity(0.2)
-                            : Colors.white24,
+                            : Colors.black54,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Column(

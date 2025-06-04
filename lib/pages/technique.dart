@@ -25,7 +25,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech1.jpeg"
               ),
               WorkoutCard(
                 title: "Proper Breathing",
@@ -33,7 +33,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech2.jpeg"
               ),
               WorkoutCard(
                 title: "Core Stability",
@@ -41,7 +41,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech3.jpeg"
               ),
             ],
           ),
@@ -63,7 +63,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "Basic Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech4.jpeg"
               ),
               WorkoutCard(
                 title: "Movement Patterns",
@@ -71,7 +71,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech5.jpeg"
               ),
               WorkoutCard(
                 title: "Balance Training",
@@ -79,7 +79,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech6.jpeg"
               ),
             ],
           ),
@@ -101,7 +101,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "Full Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech7.jpeg"
               ),
               WorkoutCard(
                 title: "Power Training",
@@ -109,7 +109,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "Basic Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech8.jpeg"
               ),
               WorkoutCard(
                 title: "Advanced Balance",
@@ -117,7 +117,7 @@ class TechniquePage extends StatelessWidget {
                 type: "Technique",
                 equipment: "No Equipment",
                 proTag: "Pro",
-                imagePath: ""
+                imagePath: "assets/images/technique/tech9.jpeg"
               ),
             ],
           ),

@@ -83,6 +83,20 @@ flutter:
     - assets/images/exercise/exercise3.jpeg
     - assets/images/exercise/exercise4.jpeg
     - assets/images/exercise/exercise5.jpeg
+    - assets/animation/Jumping_Jacks.gif
+    - assets/animation/pushups.gif
+    - assets/images/technique/tech1.jpeg
+    - assets/images/technique/tech2.jpeg
+    - assets/images/technique/tech3.jpeg
+    - assets/images/technique/tech4.jpeg
+    - assets/images/technique/tech5.jpeg
+    - assets/images/technique/tech6.jpeg
+    - assets/images/technique/tech7.jpeg
+    - assets/images/technique/tech8.jpeg
+    - assets/images/technique/tech9.jpeg
+    - assets/images/program/prog1.jpeg
+    - assets/images/program/prog2.jpeg
+    - assets/images/program/prog3.jpeg
 
 
 
