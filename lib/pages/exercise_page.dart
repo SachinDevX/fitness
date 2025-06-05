@@ -9,28 +9,28 @@ class Program_Tab extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 16),
       children: const [
         ExerciseCard(
-            imageAssets: "assets/images/exercise/exercise1.jpeg",
+            imageAssets: "assets/images/exercises/90_degree_hold.jpg",
             title: '90 Degree Hold',
             muscleGroupIcon: Icon(Icons.accessibility_new, color: Colors.white),
         ),
         ExerciseCard(
-          imageAssets: "assets/images/exercise/exercise2.jpeg",
+          imageAssets: "",
           title: 'Front Lever',
           muscleGroupIcon: Icon(Icons.accessibility_new, color: Colors.white),
         ),
         ExerciseCard(
-          imageAssets: "assets/images/exercise/exercise3.jpeg",
+          imageAssets: "",
           title: '90 Degree Hold - Parallettes',
           muscleGroupIcon: Icon(Icons.accessibility_new, color: Colors.white),
         ),
         ExerciseCard(
-          imageAssets: "assets/images/exercise/exercise4.jpeg",
+          imageAssets: "",
           title: '90 Degree Hold + Push Ups - Weight Vest',
           muscleGroupIcon: Icon(Icons.accessibility_new, color: Colors.white),
         ),
         ExerciseCard(
-          imageAssets: "assets/images/exercise/exercise5.jpeg",
-            title: 'Back Lever',
+          imageAssets: "",
+          title: 'Back Lever',
           muscleGroupIcon: Icon(Icons.accessibility_new, color: Colors.white),
         ),
 
